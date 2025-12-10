@@ -4,13 +4,12 @@ import json
 
 
 client = OpenAI(
-    api_key='sk-1c4a523b101d4a07a3e7f6cee37e48d2',
+    api_key='',#Input yourAPI key here(Deepseek)
     base_url="https://api.deepseek.com")
 
 
 
 def read_txt(path: str, max_chars: int | None = None) -> str:
-    # 调试：先看路径是否存在
     print(f"[read_txt] trying to read: {path} | exists: {os.path.exists(path)}")
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -23,7 +22,7 @@ fmt_index_text = read_txt("The_Foundation_Model_Transparency_Index_v1.1.txt", ma
 gemini_model_card_text = read_txt("868214523-Gemini-2-5-Pro-Preview-Model-Card.txt", max_chars=150000)
 gemini_report_text     = read_txt("gemini_v2_5_report.txt", max_chars=150000)
 
-# ========= 针对 Gemini 2.0 Pro 的 L4-1：Coverage across demographics or locales is characterized =========
+# ========= Gemini 2.0 Pro 的 L4-1：Coverage across demographics or locales is characterized =========
 
 system_prompt_coverage_gemini = """
 You are an expert evaluator of AI model transparency, dataset quality, and representativeness.
@@ -125,7 +124,6 @@ Constraints:
 - Your entire response must be valid JSON. Do NOT include any commentary outside the JSON object.
 """
 
-# 把 Gemini 相关文档内容喂给 DeepSeek
 user_content_coverage_gemini = f"""
 Below are the documents you can use. They are plain-text extractions from PDFs or web pages.
 
@@ -157,7 +155,6 @@ raw_output_coverage_gemini = response_coverage_gemini.choices[0].message.content
 print("Raw model output (Gemini L4 coverage):")
 print(raw_output_coverage_gemini)
 
-# 尝试解析 JSON 并保存
 try:
     scores_coverage_gemini = json.loads(raw_output_coverage_gemini)
     print("\nParsed scores (Gemini L4 coverage):")
@@ -165,4 +162,4 @@ try:
     with open("gemini2_L4_coverage_scores.json", "w", encoding="utf-8") as f:
         json.dump(scores_coverage_gemini, f, indent=2, ensure_ascii=False)
 except json.JSONDecodeError:
-    print("\n⚠️ 模型输出不是合法 JSON（Gemini L4 coverage），请手动检查或稍作清洗后再解析。")
+    print("\n⚠️ The model output is not valid JSON (Gemini L4 coverage). Please manually check it or do a bit of cleaning before parsing.")

@@ -5,13 +5,12 @@ import json
 
 
 client = OpenAI(
-    api_key='sk-1c4a523b101d4a07a3e7f6cee37e48d2',
+    api_key='',#Input yourAPI key here(Deepseek)
     base_url="https://api.deepseek.com")
 
 
 
 def read_txt(path: str, max_chars: int | None = None) -> str:
-    # 调试：先看路径是否存在
     print(f"[read_txt] trying to read: {path} | exists: {os.path.exists(path)}")
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -20,12 +19,11 @@ def read_txt(path: str, max_chars: int | None = None) -> str:
     return text
 
 
-# 根据你的实际路径修改
 gpt4o_system_card_text = read_txt("gpt4o_system_card.txt", max_chars=150000)
 gpt4_tech_report_text  = read_txt("gpt4_technical_report.txt", max_chars=150000)
 fmt_index_text = read_txt("The_Foundation_Model_Transparency_Index_v1.1.txt", max_chars=150000)
 
-# ========= 针对 L4：Coverage across demographics or locales is characterized 的评估 =========
+# ========= L4：Coverage across demographics or locales is characterized 的评估 =========
 
 system_prompt_coverage = """
 You are an expert evaluator of AI model transparency, dataset quality, and representativeness.
@@ -128,7 +126,6 @@ Constraints:
 """
 
 
-# 把文档内容喂给 DeepSeek
 user_content_coverage = f"""
 Below are the documents you can use. They are plain-text extractions from PDFs or web pages.
 
@@ -160,7 +157,6 @@ raw_output_coverage = response_coverage.choices[0].message.content
 print("Raw model output (L4 coverage):")
 print(raw_output_coverage)
 
-# 尝试解析 JSON 并保存
 try:
     scores_coverage = json.loads(raw_output_coverage)
     print("\nParsed scores (L4 coverage):")
@@ -168,4 +164,4 @@ try:
     with open("gpt4o_L4_coverage_scores.json", "w", encoding="utf-8") as f:
         json.dump(scores_coverage, f, indent=2, ensure_ascii=False)
 except json.JSONDecodeError:
-    print("\n⚠️ 模型输出不是合法 JSON（L4 coverage），请手动检查或稍作清洗后再解析。")
+    print("\n⚠️ The model output is not valid JSON (L4 coverage). Please manually check it or do a bit of cleaning before parsing.")
