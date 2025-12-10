@@ -5,13 +5,12 @@ import json
 
 
 client = OpenAI(
-    api_key='sk-1c4a523b101d4a07a3e7f6cee37e48d2',
+    api_key='',#Input yourAPI key here(Deepseek)
     base_url="https://api.deepseek.com")
 
 
 
 def read_txt(path: str, max_chars: int | None = None) -> str:
-    # 调试：先看路径是否存在
     print(f"[read_txt] trying to read: {path} | exists: {os.path.exists(path)}")
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -20,7 +19,6 @@ def read_txt(path: str, max_chars: int | None = None) -> str:
     return text
 
 
-# 根据你的实际路径修改
 gpt4o_system_card_text = read_txt("gpt4o_system_card.txt", max_chars=150000)
 gpt4_tech_report_text  = read_txt("gpt4_technical_report.txt", max_chars=150000)
 fmt_index_text = read_txt("The_Foundation_Model_Transparency_Index_v1.1.txt", max_chars=150000)
@@ -125,8 +123,6 @@ Additional constraints:
 
 
 
-# ========== 4. 构造 user prompt：把文档内容喂给模型 ==========
-
 user_content = f"""
 Below are the documents you can use. They are plain-text extractions from PDFs or web pages.
 
@@ -162,8 +158,7 @@ try:
     scores = json.loads(raw_output)
     print("\nParsed scores:")
     print(json.dumps(scores, indent=2, ensure_ascii=False))
-    # 你也可以存成文件：
     with open("gpt4o_L4_scores.json", "w", encoding="utf-8") as f:
         json.dump(scores, f, indent=2, ensure_ascii=False)
 except json.JSONDecodeError:
-    print("\n⚠️ 模型输出不是合法 JSON，请手动检查或稍作清洗后再解析。")
+    print("\n⚠️ The model output is not valid JSON. Please manually check it or do a bit of cleaning before parsing.")
