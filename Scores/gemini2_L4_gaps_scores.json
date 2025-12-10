@@ -1,0 +1,27 @@
+{
+  "model": "Gemini 2.0 Pro",
+  "indicator_L4_gaps": {
+    "rubric_summary": "This indicator evaluates if the developer explicitly documents concrete gaps or limitations in data or model behavior across demographics/locales, and describes specific mitigation measures or plans to address those gaps. A high score requires clear and explicit documentation of both gaps and mitigation, a medium score for partial or generic statements, and a low score for no meaningful disclosure.",
+    "raw_score": 0.5,
+    "raw_scale": "0, 0.5, or 1 (documentation-based gaps & mitigation disclosure)",
+    "normalized_score_0_1": 0.5,
+    "justification": "The provided documents contain relevant but incomplete disclosures for Gemini 2.0 Pro. They mention concrete limitations such as over-refusals on benign requests and disparities in inferences by skin tone, which indicate gaps in model behavior. However, the documentation does not explicitly tie specific mitigation plans to these gaps; mitigation discussions are either general (e.g., ongoing exploration of bias) or focused on improvements in subsequent models like Gemini 2.5. This aligns with the rubric for partial disclosure, where limitations are described but mitigation plans are not clearly articulated or are generic.",
+    "evidence": [
+      {
+        "doc": "Gemini v2.5 Report",
+        "location": "Section 5.4",
+        "quote": "Compared to Gemini 1.5 models, the 2.0 models are substantially safer. However, they over-refused on a wide variety of benign user requests."
+      },
+      {
+        "doc": "Gemini v2.5 Report",
+        "location": "Section 5.7",
+        "quote": "Within our evaluations for unfair bias, we observed a reduction in ungrounded inferences about people in image understanding relative to Gemini 1.5. ... there was disparity in refusal behaviour by skin tone of the person in the image. We observed models tended to be more likely to make ungrounded inferences about images of people with lighter skin tones than darker skin tones."
+      },
+      {
+        "doc": "Gemini v2.5 Report",
+        "location": "Section 5.7",
+        "quote": "We continue to explore and expand our understanding of unfair bias in Gemini models."
+      }
+    ]
+  }
+}

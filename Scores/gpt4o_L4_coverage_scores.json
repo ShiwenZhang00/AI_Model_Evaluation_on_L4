@@ -1,0 +1,27 @@
+{
+  "model": "GPT-4o",
+  "indicator_L4_coverage": {
+    "rubric_summary": "L4-1 evaluates whether the model developer explicitly characterizes coverage across demographic groups or geographic locales in documentation. A score of 1.0 requires systematic descriptions such as language distributions, performance disparities, or dedicated sections with tables/figures. A score of 0.5 indicates partial or fragmented mentions, like vague references to multilingual use. A score of 0.0 indicates no meaningful disclosure beyond generic statements.",
+    "raw_score": 1,
+    "raw_scale": "0, 0.5, or 1 (documentation-based coverage characterization)",
+    "normalized_score_0_1": 1.0,
+    "justification": "The GPT-4o System Card provides explicit and systematic characterization of coverage across demographics and locales. It includes a dedicated section (5.4) on underrepresented languages with detailed performance evaluations, tables showing accuracy across five African languages, and clear statements about gaps between English and these languages. Additionally, Section 3.3.3 describes evaluations on diverse accents using voice samples from speakers across a wide range of countries. This structured disclosure with specific data and analyses meets the criteria for a high score under L4-1.",
+    "evidence": [
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 5.4 Underrepresented Languages",
+        "quote": "GPT-4o shows improved reading comprehension and reasoning across a sample of historically underrepresented languages, and narrows the gap in performance between these languages and English."
+      },
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 5.4 Underrepresented Languages",
+        "quote": "There remain gaps in performance between English and the selected languages, but GPT-4o narrows this gap."
+      },
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 3.3.3 Disparate performance on voice inputs",
+        "quote": "We evaluate on two sets of voice samples for TTS: Official system voices and a diverse set of voices collected from two data campaigns. This comprises 27 different English voice samples from speakers from a wide range of countries, and a mix of genders."
+      }
+    ]
+  }
+}

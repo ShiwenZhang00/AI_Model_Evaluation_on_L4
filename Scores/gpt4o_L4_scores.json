@@ -1,0 +1,31 @@
+{
+  "model": "GPT-4o",
+  "indicator_L4_1": {
+    "rubric_summary": "The indicator requires explicit disclosure of training data sources and their licenses at an aggregate level. A score of 1.0 is awarded for clear, explicit disclosure; 0.5 for partial or suggestive discussion without full explicitness; 0.0 for no disclosure or vague information.",
+    "raw_score": 0,
+    "raw_scale": "0, 0.5, or 1 (FMTI-style explicit-disclosure logic with a partial-credit extension)",
+    "normalized_score_0_1": 0.0,
+    "justification": "The GPT-4o System Card mentions data sources but does not explicitly disclose the licenses associated with these sources. For example, it states data is sourced from publicly available data and proprietary partnerships, but provides no information on licenses. This falls short of the FMTI explicit-disclosure threshold required for a score of 1.0, and since there is no related discussion of licenses, it does not qualify for 0.5. Therefore, the score is 0.0.",
+    "evidence": [
+      {
+        "doc": "GPT-4o System Card",
+        "location": "section 2 Model data and training",
+        "quote": "GPT-4o’s text and voice capabilities were pre-trained using data up to October 2023, sourced from a wide variety of materials including: •Select publicly available data , mostly collected from industry-standard machine learning datasets and web crawls. •Proprietary data from data partnerships."
+      }
+    ]
+  },
+  "indicator_L4_2": {
+    "rubric_summary": "The indicator requires explicit disclosure that third-party datasets used in training include SPDX identifiers or clear license metadata. A score of 1.0 is for explicit disclosure; 0.5 for related discussion; 0.0 for no disclosure.",
+    "raw_score": 0,
+    "raw_scale": "0, 0.5, or 1 (FMTI-style explicit-disclosure logic with a partial-credit extension)",
+    "normalized_score_0_1": 0.0,
+    "justification": "The provided documents contain no mention of SPDX identifiers or clear license metadata for third-party datasets. While data sources are discussed, there is no explicit disclosure of license metadata, which fails the FMTI explicit-disclosure requirement. Without any relevant discussion, the score is 0.0.",
+    "evidence": [
+      {
+        "doc": "GPT-4o System Card",
+        "location": "section 2 Model data and training",
+        "quote": "GPT-4o’s text and voice capabilities were pre-trained using data up to October 2023, sourced from a wide variety of materials including: •Select publicly available data , mostly collected from industry-standard machine learning datasets and web crawls. •Proprietary data from data partnerships."
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "model": "GPT-4o",
+  "indicator_L4_gaps": {
+    "rubric_summary": "L4-2 requires explicit documentation of concrete gaps or limitations in data or model behavior across populations/locales, along with corresponding mitigation plans or strategies tied to those gaps.",
+    "raw_score": 1,
+    "raw_scale": "0, 0.5, or 1 (documentation-based gaps & mitigation disclosure)",
+    "normalized_score_0_1": 1.0,
+    "justification": "The GPT-4o System Card clearly and explicitly documents known gaps and limitations, such as performance disparities for underrepresented languages and disparate performance on voice inputs across accents. It describes concrete mitigation measures, including post-training with diverse voices to improve invariance and plans for future research and collaborations to address language gaps. These disclosures are specific and directly tie mitigations to the identified gaps, meeting the high standard for a score of 1.0.",
+    "evidence": [
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 5.4 Underrepresented Languages",
+        "quote": "There remain gaps in performance between English and the selected languages, but GPT-4o narrows this gap."
+      },
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 5.4 Underrepresented Languages",
+        "quote": "Despite this progress in evaluated performance, much work remains to enhance the quality and coverage of evaluations for underrepresented languages worldwide, taking into account breadth of coverage across languages and nuance within language dialects. Future research must deepen our understanding of potential interventions and partnerships that may improve how useful these models can be for both highly represented and underrepresented languages."
+      },
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 3.3.3 Disparate performance on voice inputs",
+        "quote": "Risk Description: Models may perform differently with users speaking with different accents. Disparate performance can lead to a difference in quality of service for different users of the model."
+      },
+      {
+        "doc": "GPT-4o System Card",
+        "location": "Section 3.3.3 Disparate performance on voice inputs",
+        "quote": "Risk Mitigation: We post-trained GPT-4o with a diverse set of input voices to have model performance and behavior be invariant across different user voices."
+      }
+    ]
+  }
+}

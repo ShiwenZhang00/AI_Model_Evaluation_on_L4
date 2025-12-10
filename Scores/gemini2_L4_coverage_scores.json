@@ -1,0 +1,17 @@
+{
+  "model": "Gemini 2.0 Pro",
+  "indicator_L4_coverage": {
+    "rubric_summary": "Scores are based on the explicitness and systematicity of documentation in characterizing coverage across demographics or locales (e.g., languages, regions). High score requires explicit, structured disclosures like tables or dedicated sections; medium score for partial or fragmented mentions; low score for no meaningful characterization beyond generic phrases.",
+    "raw_score": 0.5,
+    "raw_scale": "0, 0.5, or 1 (documentation-based coverage characterization)",
+    "normalized_score_0_1": 0.5,
+    "justification": "The documentation provides relevant but incomplete characterization of coverage across locales. Specifically, it mentions that Gemini models support 'over 400 languages via pretraining' and highlight optimizations for Indic, Chinese, Japanese, and Korean languages, indicating some focus on language coverage. However, there is no systematic breakdown, such as distributions or tables, and no explicit statements about which populations or locales are well-covered versus underrepresented. This aligns with the 0.5 rubric for partial disclosure, as the mentions are concrete but fragmented and not structured as a comprehensive coverage analysis.",
+    "evidence": [
+      {
+        "doc": "Gemini v2.5 Report",
+        "location": "Section 2.6 (Multilinguality subsection)",
+        "quote": "Gemini’s multilingual capabilities have also undergone a profound evolution since 1.5, which already encompassed over 400 languages via pretraining. This transformation stems from a holistic strategy, meticulously refining pre- and post-training data quality, advancing tokenization techniques, innovating core modeling, and executing targeted capability hillclimbing. The impact is particularly striking in Indic and Chinese, Japanese and Korean languages, where dedicated optimizations in data quality and evaluation have unlocked dramatic gains in both quality and decoding speed."
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "model": "Gemini 2.0 Pro",
+  "indicator_L4_1": {
+    "rubric_summary": "Indicator L4-1 requires explicit disclosure of training data sources and their licenses at an aggregate level. Under FMTI-style scoring with extension: 1.0 for clear, explicit disclosure satisfying both; 0.5 for related or suggestive discussion but not fully explicit; 0.0 for no disclosure or overly vague information.",
+    "raw_score": 0.5,
+    "raw_scale": "0, 0.5, or 1 (FMTI-style explicit-disclosure logic with a partial-credit extension)",
+    "normalized_score_0_1": 0.5,
+    "justification": "The Gemini documents provide explicit disclosure of training data sources at an aggregate level, such as publicly-available web documents, code, images, audio, and video. However, there is no explicit mention of the licenses associated with these data sources. Following the FMTI explicit-disclosure threshold, since only sources are disclosed and licenses are omitted, the disclosure is incomplete, warranting a partial score of 0.5 rather than a full 1.0.",
+    "evidence": [
+      {
+        "doc": "Gemini 2.5 Pro Preview Model Card",
+        "location": "Model Data section",
+        "quote": "Training Dataset: The pre-training dataset was a large-scale, diverse collection of data encompassing a wide range of domains and modalities, which included publicly-available web-documents, code (various programming languages), images, audio (including speech and other audio types) and video."
+      },
+      {
+        "doc": "Gemini v2.5 Report",
+        "location": "Section 2.2",
+        "quote": "Our pre-training dataset is a large-scale, diverse collection of data encompassing a wide range of domains and modalities, which includes publicly available web documents, code (various programming languages), images, audio (including speech and other audio types) and video, with a cutoff date of June 2024 for 2.0 and January 2025 for 2.5."
+      }
+    ]
+  },
+  "indicator_L4_2": {
+    "rubric_summary": "Indicator L4-2 requires that third-party datasets include SPDX or clear license metadata in disclosures. Under FMTI-style scoring with extension: 1.0 for explicit mention of SPDX or clear license metadata for third-party datasets; 0.5 for suggestive but not explicit discussion; 0.0 for no disclosure or irrelevant information.",
+    "raw_score": 0,
+    "raw_scale": "0, 0.5, or 1 (FMTI-style explicit-disclosure logic with a partial-credit extension)",
+    "normalized_score_0_1": 0.0,
+    "justification": "The provided Gemini documents do not contain any disclosure regarding third-party datasets or their license metadata (such as SPDX). There is no mention of third-party data sources or associated licenses, and the general descriptions of data do not address this indicator. According to the FMTI explicit-disclosure standard, the absence of any relevant information results in a score of 0.0.",
+    "evidence": []
+  }
+}
