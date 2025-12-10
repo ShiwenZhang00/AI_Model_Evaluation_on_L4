@@ -4,13 +4,12 @@ import json
 
 
 client = OpenAI(
-    api_key='sk-1c4a523b101d4a07a3e7f6cee37e48d2',
+    api_key='',#Input yourAPI key here(Deepseek)
     base_url="https://api.deepseek.com")
 
 
 
 def read_txt(path: str, max_chars: int | None = None) -> str:
-    # 调试：先看路径是否存在
     print(f"[read_txt] trying to read: {path} | exists: {os.path.exists(path)}")
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -159,4 +158,4 @@ try:
     with open("gemini2_L4_gaps_scores.json", "w", encoding="utf-8") as f:
         json.dump(scores_gaps_gemini, f, indent=2, ensure_ascii=False)
 except json.JSONDecodeError:
-    print("\n⚠️ 模型输出不是合法 JSON（Gemini L4-2 gaps），请手动检查或稍作清洗后再解析。")
+    print("\n⚠️ The model output is not valid JSON (Gemini L4-2 gaps). Please manually check it or do a bit of cleaning before parsing.")

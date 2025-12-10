@@ -4,13 +4,12 @@ import json
 
 
 client = OpenAI(
-    api_key='sk-1c4a523b101d4a07a3e7f6cee37e48d2',
+    api_key='',#Input yourAPI key here(Deepseek)
     base_url="https://api.deepseek.com")
 
 
 
 def read_txt(path: str, max_chars: int | None = None) -> str:
-    # 调试：先看路径是否存在
     print(f"[read_txt] trying to read: {path} | exists: {os.path.exists(path)}")
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -19,7 +18,6 @@ def read_txt(path: str, max_chars: int | None = None) -> str:
     return text
 
 
-# 根据你的实际路径修改
 gpt4o_system_card_text = read_txt("gpt4o_system_card.txt", max_chars=150000)
 gpt4_tech_report_text  = read_txt("gpt4_technical_report.txt", max_chars=150000)
 fmt_index_text = read_txt("The_Foundation_Model_Transparency_Index_v1.1.txt", max_chars=150000)
@@ -160,4 +158,4 @@ try:
     with open("gpt4o_L4_gaps_scores.json", "w", encoding="utf-8") as f:
         json.dump(scores_gaps_gpt4o, f, indent=2, ensure_ascii=False)
 except json.JSONDecodeError:
-    print("\n⚠️ 模型输出不是合法 JSON（GPT-4o L4-2 gaps），请手动检查或稍作清洗后再解析。")
+    print("\n⚠️ The model output is not valid JSON (GPT-4o L4-2 gaps). Please manually check it or do a bit of cleaning before parsing.")
